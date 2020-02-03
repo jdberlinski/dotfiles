@@ -2,8 +2,7 @@
 filetype off                  " required
 
 "make it so things get wrapped
-set wrap
-set linebreak
+:set tw=100
 
 " set up spellcheck
 set spell spelllang=en_us
@@ -32,13 +31,35 @@ Plugin 'ncm2/ncm2-ultisnips'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
-let R_nvimpager="tabnew"
-let g:rout_gollow_colorscheme = 1
-let g:rout_more_colors = 1
+let R_nvimpager="tab"
+let Rout_follow_colorscheme = 1
+let Rout_more_colors = 1
 
 
 "plugins for latex
 Plugin 'lervag/vimtex'
+let g:vimtex_quickfix_autoclose_after_keystrokes = 1 
+
+" plugins for javascript
+Plugin 'pangloss/vim-javascript'
+let g:javascript_plugin_flow = 1
+Plugin 'leshill/vim-json'
+
+" linting
+Plugin 'dense-analysis/ale'
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+            \ 'html' : [],
+            \ 'javascript' : ['eslint']
+            \}
+let g:ale_fixeds = {
+            \ 'javascript' : ['prettier'],
+            \ 'latex' : ['latexindent']
+            \}
+
+" commenting
+Plugin 'tpope/vim-commentary'
 
 " set up some of the theme stuff
 Plugin 'itchyny/lightline.vim'
@@ -98,6 +119,9 @@ set smarttab
 
 " set default latex behavior
 let g:tex_flavor = "latex"
+
+" let mouse scroll
+set mouse=a
 
 "enable plugins
 filetype on
