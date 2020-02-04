@@ -39,6 +39,7 @@ let Rout_more_colors = 1
 "plugins for latex
 Plugin 'lervag/vimtex'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1 
+let g:vimtex_view_method = "skim"
 
 " plugins for javascript
 Plugin 'pangloss/vim-javascript'
@@ -53,7 +54,7 @@ let g:ale_linters = {
             \ 'html' : [],
             \ 'javascript' : ['eslint']
             \}
-let g:ale_fixeds = {
+let g:ale_fixers = {
             \ 'javascript' : ['prettier'],
             \ 'latex' : ['latexindent']
             \}
