@@ -1,0 +1,12 @@
+snippet rheader "Header" bA
+## name: `!p snip.rv = snip.basename`.R
+## auth: josh berlinski
+## desc: $1
+
+library(tidyverse)
+theme_set(theme_classic())
+
+setwd("~/$2")
+
+$0
+endsnippet
