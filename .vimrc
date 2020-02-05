@@ -121,8 +121,15 @@ set smarttab
 " set default latex behavior
 let g:tex_flavor = "latex"
 
-" let mouse scroll
-set mouse=a
+" other vim options
+set autoread
+set wildmenu
+set clipboard=unnamed
+set nowrap
+set listchars=extends:→
+set listchars+=precedes:←
+set ignorecase smartcase
+set sidescrolloff=5
 
 "enable plugins
 filetype on
