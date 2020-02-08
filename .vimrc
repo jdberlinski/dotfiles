@@ -1,4 +1,4 @@
-"set nocompatible              " be iMproved, required
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 "make it so things get wrapped
@@ -6,6 +6,9 @@ filetype off                  " required
 
 " set up spellcheck
 set spell spelllang=en_us
+
+" auto remove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,22 +26,22 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "plugins for C
+map <F8> :w<CR> :!gcc % -o %< -std=c11 -Wall -pedantic && ./%<<CR>
 
 " plugins for R
 Plugin 'jalvesaq/Nvim-R'
-Plugin 'gaalcaras/ncm-R'
-Plugin 'ncm2/ncm2-ultisnips'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 let R_nvimpager="tab"
 let Rout_follow_colorscheme = 1
-let Rout_more_colors = 1
+inoremap <Nul> <C-x><C-o>
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
+
 
 
 "plugins for latex
 Plugin 'lervag/vimtex'
-let g:vimtex_quickfix_autoclose_after_keystrokes = 1 
+let g:Tex_Leader='"'
+let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_method = "skim"
 
 " plugins for javascript
