@@ -10,6 +10,9 @@ set spell spelllang=en_us
 " auto remove trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
+" remap ; to : for e f f i c i e n c y
+noremap ; :
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -26,12 +29,16 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 "plugins for C
-map <F8> :w<CR> :!gcc % -o %< -std=c11 -Wall -pedantic && ./%<<CR>
+map <F8> :w<CR>:!gcc % -o %< -std=c11 -Wall -pedantic && ./%<<CR>
 
-" plugins for R
+" similar remap for markdown via pandoc
+map <F9> :w<CR>:!pandoc % -o %<.html --to=html5 -c /Users/jberlinski/.local/share/markdown-css/tufte.css -s <CR>
+
+" plugins for R --- remaps omnicomplete to CTRL-SPACE, SPACE to send R line/selection
 Plugin 'jalvesaq/Nvim-R'
 let R_nvimpager="tab"
 let Rout_follow_colorscheme = 1
+let Rout_more_colors = 1
 inoremap <Nul> <C-x><C-o>
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
@@ -83,13 +90,8 @@ set laststatus=2
 set noshowmode
 
 "enable true colors
-if (has('nvim'))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-endif
+set termguicolors
 
-if (has('termguicolors'))
-    set termguicolors
-endif
 
 
 " set directory for ultisnips
@@ -140,8 +142,3 @@ set listchars=extends:→
 set listchars+=precedes:←
 set ignorecase smartcase
 set sidescrolloff=5
-
-"enable plugins
-filetype on
-filetype plugin indent on
-
