@@ -22,7 +22,7 @@ endsnippet
 
 snippet enum "Enumerate" bA
 \\begin{enumerate}
-	\\item  $0
+	\\item $0
 \\end{enumerate}
 endsnippet
 
@@ -43,7 +43,7 @@ endsnippet
 snippet dm "displaymode math" wA
 \\[
 	$1
-\\]
+.\\]
 endsnippet
 
 snippet align "align" bA
@@ -57,7 +57,7 @@ snippet // "fraction" iA
 endsnippet
 
 snippet pmat "pmat" iA
-\\begin{pmatrix} 
+\\begin{pmatrix}
 	$1
 \\end{pmatrix}
 endsnippet
@@ -72,20 +72,24 @@ snippet @( "left(right)" iA
 \left( $1 \right)
 endsnippet
 
-snippet lr| "left|right}" i
+snippet lr| "left|right}" iA
 \left| $1 \right|
 endsnippet
 
-snippet lr[ "left[right]" i
+snippet lr[ "left[right]" iA
 \left[ $1 \right]
 endsnippet
 
-snippet lrb "left{right{" i
+snippet lrb "left{right{" iA
 \left\\{ $1 \right\\}
 endsnippet
 
 snippet lra "langle rangle" iA
 \left\langle $1 \right\rangle
+endsnippet
+
+snippet lrp "left(right)" iA
+\left( $1 \right)
 endsnippet
 
 snippet pr "probability" w
@@ -128,7 +132,7 @@ snippet __ "sub" iA
 _{$1}
 endsnippet
 
-snippet <= "leq" iA 
+snippet <= "leq" iA
 \leq
 endsnippet
 
@@ -136,7 +140,7 @@ snippet >= "geq" iA
 \geq
 endsnippet
 
-snippet yii "yi" iA 
+snippet yii "yi" iA
 y_{i}
 endsnippet
 
@@ -186,7 +190,7 @@ endsnippet
 
 
 snippet notin "not in" iA
-\not\in
+\notin
 endsnippet
 
 snippet mtt "math text" iA
@@ -355,8 +359,12 @@ snippet @vh "varthet" iA
 \vartheta
 endsnippet
 
-snippet fit "italic" w
+snippet ft "italic" wA
 \textit{$1}
+endsnippet
+
+snippet fb "boldface" wA
+\textbf{$1}
 endsnippet
 
 snippet fem "emph" w
@@ -368,11 +376,15 @@ snippet mbb "mbb" iA
 endsnippet
 
 snippet vb "vector" iA
-\vb{$1}
+\vb*{$1}
+endsnippet
+
+snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
+\vb*{`!p snip.rv=match.group(1)`}
 endsnippet
 
 snippet vsb "nonupright bector" iA
-\vb*{$1}
+\vb{$1}
 endsnippet
 
 

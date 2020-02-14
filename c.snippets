@@ -1,0 +1,21 @@
+snippet include "include" bA
+#include <$1.h>
+$0
+endsnippet
+
+snippet main "main" bA
+int main(${1:void}) {
+	$0
+
+	return 0;
+}
+endsnippet
+
+snippet pf "printf" bA
+printf("$1\n");
+$0
+endsnippet
+
+snippet trn "ternary operator" bA
+(${1:cond}) ? ${2:truthy} : ${3:falsy};$0
+endsnippet
