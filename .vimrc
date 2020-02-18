@@ -13,6 +13,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " remap ; to : for e f f i c i e n c y
 noremap ; :
+noremap : ;
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
