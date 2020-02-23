@@ -31,7 +31,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "plugins for C
-map <F8> :w<CR>:!gcc % -o %< -std=c17 -Wall -pedantic && ./%<<CR>
+command Cm !gcc % -o %< -std=c17 -Wall -pedantic
+command Cr !./%<
 
 " similar remap for markdown via pandoc
 map <F9> :w<CR>:!pandoc % -o %<.html --to=html5 -c /Users/jberlinski/.local/share/markdown-css/tufte.css -s <CR>
@@ -41,6 +42,9 @@ Plugin 'jalvesaq/Nvim-R'
 let R_nvimpager="tab"
 let Rout_follow_colorscheme = 1
 let Rout_more_colors = 1
+let R_show_arg_help = 0
+let R_args_in_stline = 1 " This might break with lightline
+let R_assign = 2
 inoremap <C-z> <C-x><C-o>
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
@@ -52,7 +56,6 @@ Plugin 'lervag/vimtex'
 let g:Tex_Leader='"'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_quickfix_mode = 2
-let g:vimtex_quickfix_autojump = 1
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_method = "skim"
 set conceallevel=1
