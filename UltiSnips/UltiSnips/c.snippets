@@ -4,14 +4,15 @@ $0
 endsnippet
 
 snippet main "main" bA
-int main(${1:void}) {
+int main(${1:void})
+{
 	$0
 
 	return 0;
 }
 endsnippet
 
-snippet pf "printf" bA
+snippet pf "printf" wA
 printf("$1\n"$2);
 endsnippet
 
@@ -31,12 +32,19 @@ else if ($1) {
 } $0
 endsnippet
 
+snippet else "else block" w
+else {
+	$1
+} $0
+endsnippet
+
 snippet cm "comment" i
 /* $1 */
 endsnippet
 
 snippet fn "function" bA
-${1:int} ${2:name}($3) {
+${1:int} ${2:name}($3)
+{
 	$0
 }
 endsnippet
