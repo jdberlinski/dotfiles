@@ -79,11 +79,11 @@ let g:ale_fixers = {
             \}
 
 " smooth scrolling
-Plugin 'terryma/vim-smooth-scroll'
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" Plugin 'terryma/vim-smooth-scroll'
+" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " commenting
 Plugin 'tpope/vim-commentary'
@@ -125,13 +125,13 @@ filetype plugin indent on    " required
 syntax on
 
 "enable line numbers
-set number relativenumber
+set number " relativenumber
 " enable auto switching line number style
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-augroup END
+" augroup numbertoggle
+" 	autocmd!
+" 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+" 	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+" augroup END
 
 " set up tabs and spaces
 set tabstop=4
@@ -151,3 +151,4 @@ set listchars=extends:→
 set listchars+=precedes:←
 set ignorecase smartcase
 set sidescrolloff=5
+set cursorline
