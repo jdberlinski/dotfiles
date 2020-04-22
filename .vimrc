@@ -31,7 +31,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "plugins for C
-command Cm !gcc % -o %< -std=c17 -Wall -pedantic
+command Cm !gcc % -o %< -std=c17 -Wall -pedantic -lm
 command Cr !./%<
 
 " similar remap for markdown via pandoc
@@ -57,7 +57,7 @@ let g:Tex_Leader='"'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
-let g:vimtex_view_method = "skim"
+let g:vimtex_view_method = "zathura"
 
 
 " plugins for javascript
@@ -84,6 +84,10 @@ let g:ale_fixers = {
 " noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 " noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 " noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+"
+
+" for reading csv's
+Plugin 'chrisbra/csv.vim'
 
 " commenting
 Plugin 'tpope/vim-commentary'

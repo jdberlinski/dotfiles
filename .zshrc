@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jberlinski/.oh-my-zsh"
+export ZSH="/home/jdb/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,9 +97,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ll="ls -alF"
+alias todo="vim ~/todo.md"
 
 PATH="/Users/jberlinski/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/jberlinski/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/Users/jberlinski/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/Users/jberlinski/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/jberlinski/perl5"; export PERL_MM_OPT;
+
+
+# Stuff for 580 -- CMPH
+LD_LIBRARY_PATH="/usr/local/lib"
+export LD_LIBRARY_PATH
