@@ -1,8 +1,8 @@
 library(colorout)
 library(utils)
 
-options(repos=structure(c(CRAN="https://cran.rstudio.com/")), digits = 4,
-        show.signif.stars = FALSE, continue = "    ")
+options(repos=structure(c(CRAN="https://cran.rstudio.com/")), digits = 6,
+        show.signif.stars = FALSE, prompt = "R> ", continue = "   ")
 
 # update.packages(ask = FALSE)
 
