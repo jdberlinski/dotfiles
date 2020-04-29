@@ -2,7 +2,7 @@ LCHAR_WIDTH=%1G
 
 LCHAR='$'
 #PROMPT='%{$fg[cyan]%}%c %{$fg_bold[green]%}➜ %{$reset_color%}'
-PROMPT='%{%F{16}%}%~ %{$fg[white]%}%{$LCHAR$LCHAR_WIDTH%} %{$reset_color%}'
+PROMPT='%{$fg_bold[magenta]%}%~ %{$fg[white]%}%{$LCHAR$LCHAR_WIDTH%} %{$reset_color%}'
 RPROMPT='$(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"

@@ -10,8 +10,8 @@ font:
 
 colors:
     primary:
-        background: '0x212121'
-        foreground: '0xeeffff'
+        background: '0x282828'
+        foreground: '0xeeeeee'
 
     normal:
         black: '0x000000'
