@@ -132,11 +132,11 @@ snippet __ "sub" iA
 _{$1}
 endsnippet
 
-snippet leq "leq" iA
+snippet <= "leq" iA
 \leq
 endsnippet
 
-snippet geq "geq" iA
+snippet >= "geq" iA
 \geq
 endsnippet
 
@@ -154,10 +154,6 @@ endsnippet
 
 snippet xnn "xn" iA
 x_{n}
-endsnippet
-
-snippet Xnn "Xn" iA
-X_{n}
 endsnippet
 
 snippet mcal "mathcal" iA
@@ -379,7 +375,7 @@ snippet mbb "mbb" iA
 \mathbb{$1}
 endsnippet
 
-snippet vb "vector" i
+snippet vb "vector" iA
 \vb*{$1}
 endsnippet
 
@@ -387,7 +383,7 @@ snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vb*{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet vsb "nonupright bector" i
+snippet vsb "nonupright bector" iA
 \vb{$1}
 endsnippet
 
@@ -424,20 +420,4 @@ endsnippet
 
 snippet ssn "subsection" b
 \subsection*{$1}
-endsnippet
-
-snippet iffproof "if and only if proof itemize" b
-\begin{itemize}
-	\item[$\underline{\Rightarrow}$:] $1
-
-	\item[$\underline{\Leftarrow}$:] $2
-\end{itemize}
-endsnippet
-
-snippet norm "norm" i
-\norm{$1}
-endsnippet
-
-snippet abs "absolute value" i
-\abs{$1}
 endsnippet

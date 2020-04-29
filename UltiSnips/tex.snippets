@@ -375,7 +375,7 @@ snippet mbb "mbb" iA
 \mathbb{$1}
 endsnippet
 
-snippet vb "vector" iA
+snippet vb "vector" i
 \vb*{$1}
 endsnippet
 
@@ -383,7 +383,7 @@ snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vb*{`!p snip.rv=match.group(1)`}
 endsnippet
 
-snippet vsb "nonupright bector" iA
+snippet vsb "nonupright bector" i
 \vb{$1}
 endsnippet
 
@@ -420,4 +420,32 @@ endsnippet
 
 snippet ssn "subsection" b
 \subsection*{$1}
+endsnippet
+
+snippet abs "absolute value" i
+\abs{$1}
+endsnippet
+
+snippet var "variance" i
+\var\left[ $1 \right]
+endsnippet
+
+snippet cov "covariance" i
+\cov\left[ $1, $2 \right]
+endsnippet
+
+snippet log "logarithm" i
+\log\left( $1 \right)
+endsnippet
+
+snippet exp "exponential" i
+\exp\left\\{ $1 \right\\}
+endsnippet
+
+snippet uset "underset" i
+\underset{$1}{$2}
+endsnippet
+
+snippet oset "overset" i
+\overset{$1}{$2}
 endsnippet

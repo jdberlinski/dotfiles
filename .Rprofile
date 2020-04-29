@@ -2,7 +2,7 @@ library(colorout)
 library(utils)
 
 options(repos=structure(c(CRAN="https://cran.rstudio.com/")), digits = 6,
-        show.signif.stars = FALSE, prompt = "R> ", continue = "   ")
+        show.signif.stars = FALSE, prompt = "R > ", continue = "    ")
 
 # update.packages(ask = FALSE)
 

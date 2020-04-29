@@ -39,6 +39,12 @@ inoremap <C-z> <C-x><C-o>
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
+Plugin 'ncm2/ncm2'
+Plugin 'roxma/nvim-yarp'
+Plugin 'gaalcaras/ncm-R'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'ncm2/ncm2-ultisnips'
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 "plugins for latex
 Plugin 'lervag/vimtex'

@@ -1,0 +1,42 @@
+font:
+    normal:
+        family: Unifont
+    bold:
+        family: Unifont
+
+    italic:
+        family: Unifont
+    size: 15.0
+
+colors:
+    primary:
+        background: '0x212121'
+        foreground: '0xeeffff'
+
+    normal:
+        black: '0x000000'
+        red: '0xff5470'
+        green: '0xc3e88d'
+        yellow: '0xffcb6b'
+        blue: '0x82aaff'
+        magenta: '0xf07178'
+        cyan: '0x89ddff'
+        white: '0xffffff'
+
+    indexed_colors:
+      - { index: 16, color: '0xb58aff' }
+
+
+window:
+    decorations: 'full'
+
+key_bindings:
+  - { key: V,        mods: Command,       action: Paste                        }
+  - { key: C,        mods: Command,       action: Copy                         }
+  - { key: Q,        mods: Command,       action: Quit                         }
+  - { key: N,        mods: Command,       action: SpawnNewInstance             }
+  - { key: D,        mods: Control | Shift,       action: ScrollLineDown               }
+  - { key: U,        mods: Control | Shift,       action: ScrollLineUp                 }
+
+mouse_bindings:
+    - { mouse: Middle, action: PasteSelection }
