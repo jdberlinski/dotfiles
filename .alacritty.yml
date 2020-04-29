@@ -23,10 +23,6 @@ colors:
         cyan: '0x89ddff'
         white: '0xffffff'
 
-    indexed_colors:
-      - { index: 16, color: '0xb58aff' }
-
-
 window:
     decorations: 'full'
 
