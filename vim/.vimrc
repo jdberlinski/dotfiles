@@ -3,7 +3,7 @@ set nocompatible
 filetype off
 
 "make it so text gets wrapped
-:set tw=80
+:set tw=95
 
 " set up spellcheck
 set spell spelllang=en_us
@@ -52,7 +52,9 @@ let g:Tex_Leader='"'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
-let g:vimtex_view_method = "skim"
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
 
 " commenting
 Plugin 'tpope/vim-commentary'
@@ -60,10 +62,9 @@ Plugin 'tpope/vim-commentary'
 " set up some of the theme stuff
 Plugin 'jacoborus/tender.vim'
 colorscheme tender
-let macvim_skip_colorscheme=1
 
 "enable true colors
-set termguicolors
+" set termguicolors
 
 " set directory for ultisnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
