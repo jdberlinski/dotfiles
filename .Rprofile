@@ -1,10 +1,11 @@
 library(colorout)
 library(utils)
 
+setOutputColors(normal = 250, number = 107, negnum = 203,
+                date = 107, string = 107, verbose = FALSE)
+
 options(repos=structure(c(CRAN="https://cran.rstudio.com/")), digits = 6,
         show.signif.stars = FALSE, prompt = "R > ", continue = "    ")
-
-# update.packages(ask = FALSE)
 
 .env = new.env()
 

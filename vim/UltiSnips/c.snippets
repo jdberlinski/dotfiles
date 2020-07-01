@@ -4,7 +4,7 @@ $0
 endsnippet
 
 snippet main "main" bA
-int main(${1:void})
+int main($1)
 {
 	$0
 
@@ -21,19 +21,22 @@ snippet trn "ternary operator" bA
 endsnippet
 
 snippet if "if blocK" b
-if ($1) {
+if ( $1 )
+{
 	$2
 } $0
 endsnippet
 
 snippet elif "else if block" wA
-else if ($1) {
+else if ( $1 )
+{
 	$2
 } $0
 endsnippet
 
 snippet else "else block" w
-else {
+else
+{
 	$1
 } $0
 endsnippet
@@ -42,9 +45,23 @@ snippet cm "comment" i
 /* $1 */
 endsnippet
 
+snippet clm "block comment" i
+/*
+ * $1
+ */
+endsnippet
+
 snippet fn "function" bA
 ${1:int} ${2:name}($3)
 {
 	$0
 }
+endsnippet
+
+snippet ( "autocomplete paren" i
+($1)$0
+endsnippet
+
+snippet [ "autocomplete br" i
+[$1]$0
 endsnippet
