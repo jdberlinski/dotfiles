@@ -2,11 +2,9 @@
 set nocompatible
 filetype off
 set tw=80
-set spell spelllang=en_us
+set spelllang=en_us
 
 autocmd BufWritePre * %s/\s\+$//e
-noremap ; :
-noremap : ;
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 let maplocalleader=" "
@@ -40,7 +38,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'sstallion/vim-wtf'
+Plugin 'duckwork/low.vim'
 
 "Plugins
 Plugin 'SirVer/ultisnips'
@@ -51,9 +49,11 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'alvan/vim-closetag'
 
 "
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-m> :NERDTreeToggle<CR>
 
 " disable auto-pairs for tex
 au Filetype tex let b:AutoPairs = {}
@@ -88,7 +88,7 @@ let g:vimtex_view_general_options_latexmk = '--unique'
 
 call vundle#end()
 set termguicolors
-colorscheme wtf
+colorscheme low
 filetype plugin indent on
 
 set backupdir=.backup/,~/.backup/,/tmp//

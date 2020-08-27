@@ -5,7 +5,7 @@ fpath+=/home/josh/.local/bin
 # Path to shell utilities
 export UTILS="$HOME/utils/"
 
-ZSH_THEME="minimal"
+ZSH_THEME="sammy"
 
 plugins=(git colored-man-pages)
 
