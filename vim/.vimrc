@@ -15,21 +15,14 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'SirVer/ultisnips'
 Plug 'jalvesaq/Nvim-R'
-Plug 'vimwiki/vimwiki'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
-Plug 'preservim/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'alvan/vim-closetag'
-Plug 'chrisbra/csv.vim'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
-Plug 'owickstrom/vim-colors-paramount'
-Plug 'gruvbox-community/gruvbox'
-
-"
-nnoremap <C-m> :NERDTreeToggle<CR>
+" Plug 'ayu-theme/ayu-vim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'vim-airline/vim-airline'
 
 " disable auto-pairs for tex
 au Filetype tex let b:AutoPairs = {}
@@ -45,32 +38,35 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Nvim-R options
 let R_nvimpager="tab"
-let Rout_follow_colorscheme = 1
-let R_show_arg_help = 0
+" let Rout_follow_colorscheme = 1
+" let R_show_arg_help = 0
 let R_assign = 0
-inoremap <nul> <C-x><C-o>
+let R_app = "radian"
+let R_cmd = "R"
+let R_hl_term = 0
+let R_args = []
+let R_bracketed_paste = 1
+let R_openpdf = 0
 vmap , <Plug>RDSendSelection
 nmap , <Plug>RDSendLine
 
 " vimtex options
 let g:Tex_Leader='"'
 let g:tex_flavor = "latex"
-" let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
+let g:vimtex_view_general_viewer = 'zathura'
 
 call plug#end()
 
-" colorscheme acme
-set background=dark
-" colorscheme paramount
-autocmd vimenter * colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='soft'
-let g:gruvbox_italic=1
+" set background=dark
+" set termguicolors
+" let ayucolor="dark"
+colorscheme codedark
+let g:airline_theme = 'codedark'
+" set laststatus=3
+set laststatus=0
+set noshowmode
 
 filetype plugin indent on
 
@@ -97,8 +93,9 @@ let maplocalleader=" "
 let mapleader=" "
 set path+=**
 
+set mouse=a
+
 set wildignore+=*.pdf,*.o,*.jpg,*.png,*.so
-highlight Comment cterm=italic gui=italic
 
 let &rtp = '~/.local/share/nvim/plugged/vimtex,' . &rtp
 let &rtp .= ',~/.local/share/nvim/plugged/vimtex/after'

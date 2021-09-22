@@ -11,6 +11,17 @@ else
   export CLICOLOR=1
 fi
 
+function git_branch_name() {
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]]; then
+    :
+  else
+    echo ' ('$branch')'
+  fi
+}
+
+setopt prompt_subst
+
 # Aliases
 alias ls="ls ${lsflags}"
 alias ll="ls ${lsflags} -l"
@@ -20,6 +31,7 @@ alias hg="history -1000 | grep -i"
 alias ,="cd .."
 alias m="less"
 alias v="nvim"
+alias t="tree"
 
 # GIT
 # Do this: git config --global url.ssh://git@github.com/.insteadOf https://github.com
@@ -32,7 +44,7 @@ alias gp="git push"
 
 # More suitable for .zshenv
 EDITOR=vim
-PROMPT='%n@%m %3~%(!.#.$)%(?.. [%?]) '
+PROMPT='%3~$(git_branch_name)%(!.#.$)%(?.. [%?]) '
 
 # quick R building
 alias rmk="R CMD build && R CMD INSTALL ."
@@ -78,4 +90,3 @@ bindkey '\e[3~' delete-char
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey ' '  magic-space
-
