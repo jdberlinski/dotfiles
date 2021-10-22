@@ -20,9 +20,11 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
+Plug 'jpalardy/vim-slime'
+
 " Plug 'ayu-theme/ayu-vim'
 Plug 'tomasiser/vim-code-dark'
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " disable auto-pairs for tex
 au Filetype tex let b:AutoPairs = {}
@@ -50,6 +52,14 @@ let R_openpdf = 0
 vmap , <Plug>RDSendSelection
 nmap , <Plug>RDSendLine
 
+"slim
+let g:slime_target = "tmux"
+let g:slime_python_ipython=1
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{bottom-left}' }
+let g:slime_dont_ask_default = 1
+
 " vimtex options
 let g:Tex_Leader='"'
 let g:tex_flavor = "latex"
@@ -63,10 +73,10 @@ call plug#end()
 " set termguicolors
 " let ayucolor="dark"
 colorscheme codedark
-let g:airline_theme = 'codedark'
+" let g:airline_theme = 'codedark'
 " set laststatus=3
 set laststatus=0
-set noshowmode
+" set noshowmode
 
 filetype plugin indent on
 
