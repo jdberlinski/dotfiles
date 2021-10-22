@@ -36,6 +36,8 @@ alias t="tree"
 # tmux
 alias tm="st -e tmux"
 
+alias hpcl="ssh jberlin@hpc-class.its.iastate.edu"
+
 # GIT
 # Do this: git config --global url.ssh://git@github.com/.insteadOf https://github.com
 alias gd="git diff"
@@ -45,9 +47,12 @@ alias ga="git add"
 alias gl="git pull"
 alias gp="git push"
 
+purple='\[\033[0;35m\]'
+PURPLE='\[\033[1;35m\]'
+
 # More suitable for .zshenv
 EDITOR=vim
-PROMPT='%B%n@%m%b | %3~$(git_branch_name)%(!.#.$)%(?.. [%?]) '
+PROMPT='%F{cyan}%B%n@%m%b%f | %3~$(git_branch_name)%(!.#.$)%(?.. [%?]) '
 
 # quick R building
 alias rmk="R CMD build && R CMD INSTALL ."
