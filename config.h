@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Everson Mono:pixelsize=14:antialias=true:autohint=true";
+/* static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true"; */
+static char *font = "Unifont:pixelsize=16";
 static int borderpx = 2;
 
 /*
