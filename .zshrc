@@ -19,9 +19,6 @@ alias ,="cd .."
 alias v="nvim"
 alias z="zathura"
 
-alias pronto="ssh jberlin@pronto.las.iastate.edu"
-alias gangotri="ssh gangotri.stat.iastate.edu -l jberlin -p 51064"
-
 # GIT
 # Do this: git config --global url.ssh://git@github.com/.insteadOf https://github.com
 alias gd="git diff"
