@@ -1,22 +1,11 @@
-# Sensible, short .zshrc
-# Gist page: git.io/vSBRk
-# Raw file:  curl -L git.io/sensible-zshrc
-
-# GNU and BSD (macOS) ls flags aren't compatible
-ls --version &>/dev/null
-if [ $? -eq 0 ]; then
-  lsflags="--color --group-directories-first -F"
-else
-  lsflags="-GF"
-  export CLICOLOR=1
-fi
+lsflags="--color --group-directories-first -F"
 
 function git_branch_name() {
   branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
   if [[ $branch == "" ]]; then
     :
   else
-    echo ' ('$branch')'
+    echo '⎇ '$branch''
   fi
 }
 
@@ -24,19 +13,14 @@ setopt prompt_subst
 
 # Aliases
 alias ls="ls ${lsflags}"
-alias ll="ls ${lsflags} -l"
-alias la="ls ${lsflags} -la"
-alias h="history"
-alias hg="history -1000 | grep -i"
+alias ll="ls ${lsflags} -lh"
+alias la="ls ${lsflags} -lah"
 alias ,="cd .."
-alias m="less"
 alias v="nvim"
-alias t="tree"
+alias z="zathura"
 
-# tmux
-alias tm="st -e tmux"
-
-alias hpcl="ssh jberlin@hpc-class.its.iastate.edu"
+alias pronto="ssh jberlin@pronto.las.iastate.edu"
+alias gangotri="ssh gangotri.stat.iastate.edu -l jberlin -p 51064"
 
 # GIT
 # Do this: git config --global url.ssh://git@github.com/.insteadOf https://github.com
@@ -47,18 +31,19 @@ alias ga="git add"
 alias gl="git pull"
 alias gp="git push"
 
-purple='\[\033[0;35m\]'
-PURPLE='\[\033[1;35m\]'
-
 # More suitable for .zshenv
 EDITOR=vim
-PROMPT='%F{cyan}%B%n@%m%b%f | %3~$(git_branch_name)%(!.#.$)%(?.. [%?]) '
+
+# Set the right prompt to the vcs_info message
+RPROMPT='$(git_branch_name)'
+
+PROMPT='%2~ %(?.%F{green}$.%F{red}$)%f '
 
 # quick R building
 alias rmk="R CMD build && R CMD INSTALL ."
 
 # source my shell scripts
-source ~/shell_tools/marco_polo.sh
+source ~/random/shelltools.sh
 
 # History settings
 HISTFILE=~/.history-zsh
@@ -98,3 +83,13 @@ bindkey '\e[3~' delete-char
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey ' '  magic-space
+export PATH="/home/josh/.local/bin:$PATH"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/josh/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
