@@ -5,7 +5,7 @@ function git_branch_name() {
   if [[ $branch == "" ]]; then
     :
   else
-    echo '⎇ '$branch''
+    echo '('$branch')'
   fi
 }
 
@@ -27,14 +27,30 @@ alias gc="git commit"
 alias ga="git add"
 alias gl="git pull"
 alias gp="git push"
+alias glog="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --graph"
 
 # More suitable for .zshenv
 EDITOR=vim
 
 # Set the right prompt to the vcs_info message
-RPROMPT='$(git_branch_name)'
+# RPROMPT='$(git_branch_name)'
 
-PROMPT='%2~ %(?.%F{green}$.%F{red}$)%f '
+# git prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+precmd() {
+  vcs_info
+}
+zstyle ':vcs_info:git*' formats '(%b%u%c)'
+zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
+zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
+zstyle ':vcs_info:*:*' check-for-changes true
+
+PROMPT='%2~ ${vcs_info_msg_0_}%(?.%F{green}$.%F{red}$)%f '
+
+
+
+# PROMPT='%2~ $(git_branch_name)%(?.%F{green}$.%F{red}$)%f '
 
 # quick R building
 alias rmk="R CMD build && R CMD INSTALL ."

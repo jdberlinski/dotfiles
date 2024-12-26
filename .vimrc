@@ -14,15 +14,21 @@ Plug 'SirVer/ultisnips'
 Plug 'jalvesaq/Nvim-R'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'jalvesaq/R-Vim-runtime'
+Plug 'vim-scripts/restore_view.vim'
 
 Plug 'jpalardy/vim-slime'
 Plug 'morhetz/gruvbox'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " disable auto-pairs for tex
 au Filetype tex let b:AutoPairs = {}
+" enable spellcheck for tex
+au Filetype tex set spell
 
 " change cpp comments in commentary
 au Filetype c,cpp set commentstring=//\ %s
@@ -48,6 +54,8 @@ let R_openpdf = 0
 vmap , <Plug>RDSendSelection
 nmap , <Plug>RDSendLine
 
+let R_rconsole_width = 0
+
 " fix awful indenting
 let r_indent_align_args = 0
 
@@ -71,11 +79,14 @@ let g:vimtex_quickfix_mode = 2
 let g:vimtex_quickfix_autoclose_after_keystrokes = 1
 let g:vimtex_view_general_viewer = 'zathura'
 
+" save/load folds automatically
+set viewoptions=folds
 call plug#end()
 
 set termguicolors
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme gruvber
 
 " colorscheme paper
 set laststatus=0
@@ -89,12 +100,12 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-set tw=120
+set tw=80
 set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 syntax on
-" set number
+set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -102,6 +113,8 @@ set smarttab
 set autoread
 set wildmenu
 set clipboard=unnamed
+" set wrap
+set linebreak
 set nowrap
 set ignorecase smartcase
 set sidescrolloff=5
@@ -132,3 +145,21 @@ nnoremap <leader>dd :Lexplore<CR>
 " Fix nvim-r not starting?
 let R_tmpdir="~/.tmp"
 let R_compldir="~/.tmp"
+
+" fill rest of line with characters
+function! FillLine( str )
+    " set tw to the desired total length
+    let tw = &textwidth
+    if tw==0 | let tw = 80 | endif
+    " strip trailing spaces first
+    .s/[[:space:]]*$//
+    " calculate total number of 'str's to insert
+    let reps = (tw - col("$")) / len(a:str)
+    " insert them, if there's room, removing trailing spaces (though forcing
+    " there to be one)
+    if reps > 0
+        .s/$/\=(' '.repeat(a:str, reps))/
+    endif
+endfunction
+
+map <leader>- :call FillLine( '-' )<Enter>
