@@ -49,6 +49,7 @@ require("lazy").setup({
         R_args = { "--no-save", "--quiet" },
         R_app = "radian",
         bracketed_paste = true,
+        disable_cmds = {"RInsertPipe"},
         hook = {
           on_filetype = function()
             vim.keymap.set('n', ',', '<Plug>RDSendLine', {buffer = true})
